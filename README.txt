@@ -1,7 +1,7 @@
 Plugin Builder Results
 
 Your plugin CalculoVazaoAguaDomiciliar was created in:
-    C:\ideci-geo\plugins\CalculoVazaoAguaDomiciliar
+    C:\ideci-geo\plugins\DemandaEmRedesDistribuicao
 
 Your QGIS plugin directory is located at:
     C:/Users/edernilson/.qgis2/python/plugins
@@ -15,7 +15,7 @@ What's Next:
 
   * Test the plugin by enabling it in the QGIS plugin manager
 
-  * Customize it by editing the implementation file: ``calculo_vazao_agua_domiciliar.py``
+  * Customize it by editing the implementation file: ``demanda_em_redes_distribuicao.py``
 
   * You can use the Makefile to compile your Ui and resource files when
     you make changes. This requires GNU make (gmake)

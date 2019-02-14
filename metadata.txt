@@ -1,39 +1,22 @@
-# This file contains metadata for your plugin. Since 
-# version 2.0 of QGIS this is the proper way to supply 
-# information about a plugin. The old method of 
-# embedding metadata in __init__.py will 
-# is no longer supported since version 2.0.
-
-# This file should be included when you package your plugin.# Mandatory items:
-
 [general]
-name=Calculo Vazão de Água de Domicílios
+name=Demandas em redes de distribuição
 qgisMinimumVersion=2.0
-description=Calcula a somatória da vazão de água de domicílios baseado no hub mais próximo
+description=Algoritmos para calcular demanda em nós da rede de distribuição
 version=0.1
-author=Eder Nilson
+author=Eder Nilson, Julian Cardona
 email=eder.nilson@gmail.com
 
-about=Calcula a somatória da vazão de água de domicílios baseado no hub mais próximo, ligando os pontos de origem e destino. Este plugin de processamento é baseado no componente "Distance to nearest hub (Distância para o centro mais próximo)". Dada uma camada de ponto de origem e outra representando pontos de destino (hub), este algoritmo calcula a distância entre cada ponto de origem e o ponto de detenção mais próximo. A partir do link estabelecido, este algorítimo somará o campo de origem de todos os domicíos ligados ao hub atualizando o campo de destino com a somatória resultante.
+about=<b>Calcula Demanda em Nós:</b><br/>Estima a demanda nos nós(hub), baseado no consumo dos domicílios. O cálculo é realizado somando a demanda nos domicílios, e designando a demanda total em os nós da rede de distribuição. Este plugin de processamento é baseado no componente "<b>Distance to nearest hub</b> (Distância para o centro mais próximo)".<br/><b>Funcionamento: </b>Dada uma camada de origem (domicílios) e outra representando pontos de destino (nós), o algoritmo calcula a distância entre cada ponto de origem (domicílios) e o ponto de detenção mais próximo (Nós), em este último é somado os consumos dos domicílios, e totalizando o valor de demanda que será designado para o NO(hub) mais próximo. Além disso, o algoritmo cria uma camada tipo “linha”, que identifica os domicílios (origem) e os Nós (destino), permitindo verificar facilmente a conectividade do geoprocessamento.
 
-tracker=https://github.com/edernilson
+tracker=http://hub.qgis.org/projects/demanda_em_redes_distribuicao/issues
 repository=https://github.com/edernilson
-# End of mandatory metadata
 
-# Recommended items:
-
-# Uncomment the following line and add your changelog:
-# changelog=
-
-# Tags are comma separated with spaces allowed
-tags=qgis calculo abastecimento vazao agua
+tags=processing, demand, hub, distribution network
 
 homepage=https://github.com/edernilson
 category=Analysis
 icon=icon.png
-# experimental flag
-experimental=True
 
-# deprecated flag (applies to the whole plugin, not just a single version)
+experimental=True
 deprecated=False
 

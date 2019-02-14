@@ -3,7 +3,7 @@
 /***************************************************************************
  CalculoVazaoAguaDomiciliar
                                  A QGIS plugin
- Calcula a somatória da vazão de água de domicílios baseado no hub mais próximo
+ Algoritmos para calcular demanda em nós da rede de distribuição
                               -------------------
         begin                : 2018-04-04
         copyright            : (C) 2018 by Eder Nilson
@@ -28,11 +28,11 @@ __copyright__ = '(C) 2018 by Eder Nilson'
 
 # noinspection PyPep8Naming
 def classFactory(iface):  # pylint: disable=invalid-name
-    """Load CalculoVazaoAguaDomiciliar class from file CalculoVazaoAguaDomiciliar.
+    """Load DemandaEmRedesDistribuicao class from file DemandaEmRedesDistribuicao.
 
     :param iface: A QGIS interface instance.
     :type iface: QgsInterface
     """
     #
-    from .calculo_vazao_agua_domiciliar import CalculoVazaoAguaDomiciliarPlugin
-    return CalculoVazaoAguaDomiciliarPlugin()
+    from .demanda_em_redes_distribuicao import DemandaEmRedesDistribuicaoPlugin
+    return DemandaEmRedesDistribuicaoPlugin()

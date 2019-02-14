@@ -26,25 +26,25 @@
 #Add iso code for any locales you want to support here (space separated)
 # default is no locales
 # LOCALES = af
-LOCALES =
+LOCALES = pt_BR
 
 # If locales are enabled, set the name of the lrelease binary on your system. If
 # you have trouble compiling the translations, you may have to specify the full path to
 # lrelease
 #LRELEASE = lrelease
-#LRELEASE = lrelease-qt4
+LRELEASE = lrelease-qt4
 
 
 # translation
 SOURCES = \
 	__init__.py \
-	calculo_vazao_agua_domiciliar.py 
+	demanda_em_redes_distribuicao.py 
 
-PLUGINNAME = CalculoVazaoAguaDomiciliar
+PLUGINNAME = DemandaEmRedesDistribuicao
 
 PY_FILES = \
 	__init__.py \
-	calculo_vazao_agua_domiciliar.py 
+	demanda_em_redes_distribuicao.py 
 
 UI_FILES = 
 

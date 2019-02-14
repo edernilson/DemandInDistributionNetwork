@@ -34,7 +34,8 @@ import sys
 import inspect
 
 from processing.core.Processing import Processing
-from calculo_vazao_agua_domiciliar_provider import CalculoVazaoAguaDomiciliarProvider
+
+from demanda_em_redes_distribuicao_provider import DemandaEmRedesDistribuicaoProvider
 
 cmd_folder = os.path.split(inspect.getfile(inspect.currentframe()))[0]
 
@@ -42,10 +43,10 @@ if cmd_folder not in sys.path:
     sys.path.insert(0, cmd_folder)
 
 
-class CalculoVazaoAguaDomiciliarPlugin:
+class DemandaEmRedesDistribuicaoPlugin:
 
     def __init__(self):
-        self.provider = CalculoVazaoAguaDomiciliarProvider()
+        self.provider = DemandaEmRedesDistribuicaoProvider()
 
     def initGui(self):
         Processing.addProvider(self.provider)

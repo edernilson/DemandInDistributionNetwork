@@ -2,9 +2,9 @@
 
 """
 /***************************************************************************
- CalculoVazaoAguaDomiciliar
+ DemandaEmRedesDistribuicao
                                  A QGIS plugin
- Calcula a somatória da vazão de água de domicílios baseado no hub mais próximo
+ Algoritmos para calcular demanda em nós da rede de distribuição
                               -------------------
         begin                : 2018-04-04
         copyright            : (C) 2018 by Eder Nilson
@@ -31,18 +31,24 @@ __revision__ = '$Format:%H$'
 
 from processing.core.AlgorithmProvider import AlgorithmProvider
 from processing.core.ProcessingConfig import Setting, ProcessingConfig
+
 from calculo_vazao_agua_domiciliar_algorithm import CalculoVazaoAguaDomiciliarAlgorithm
 
 
-class CalculoVazaoAguaDomiciliarProvider(AlgorithmProvider):
+class DemandaEmRedesDistribuicaoProvider(AlgorithmProvider):
 
-    MY_DUMMY_SETTING = 'MY_DUMMY_SETTING'
+    DESCRIPTION = u'Algorítimos para designar demandas nos nós na rede de distribuição'
+    NAME = 'DemandasDeNos'
+    CALCULOSABASTECIMENTOAGUA_SETTING = 'DEMANDADENOS_SETTING'
+
+
+    ACTIVATE_CAA_SETTING = 'ACTIVATE_DDN_SETTING'
 
     def __init__(self):
         AlgorithmProvider.__init__(self)
 
         # Deactivate provider by default
-        self.activate = False
+        self.activate = True
 
         # Load algorithms
         self.alglist = [CalculoVazaoAguaDomiciliarAlgorithm()]
@@ -58,9 +64,10 @@ class CalculoVazaoAguaDomiciliarProvider(AlgorithmProvider):
         deactivating the algorithms in the provider.
         """
         AlgorithmProvider.initializeSettings(self)
-        ProcessingConfig.addSetting(Setting('Example algorithms',
-            CalculoVazaoAguaDomiciliarProvider.MY_DUMMY_SETTING,
-            'Example setting', 'Default value'))
+        ProcessingConfig.addSetting(
+            Setting(self.getDescription(),
+                    self.CALCULOSABASTECIMENTOAGUA_SETTING,
+                    'Active', True))
 
     def unload(self):
         """Setting should be removed here, so they do not appear anymore
@@ -68,7 +75,7 @@ class CalculoVazaoAguaDomiciliarProvider(AlgorithmProvider):
         """
         AlgorithmProvider.unload(self)
         ProcessingConfig.removeSetting(
-            CalculoVazaoAguaDomiciliarProvider.MY_DUMMY_SETTING)
+            self.CALCULOSABASTECIMENTOAGUA_SETTING)
 
     def getName(self):
         """This is the name that will appear on the toolbox group.
@@ -76,12 +83,12 @@ class CalculoVazaoAguaDomiciliarProvider(AlgorithmProvider):
         It is also used to create the command line name of all the
         algorithms from this provider.
         """
-        return ''
+        return self.NAME
 
     def getDescription(self):
         """This is the provired full name.
         """
-        return ''
+        return self.DESCRIPTION
 
     def getIcon(self):
         """We return the default icon.
