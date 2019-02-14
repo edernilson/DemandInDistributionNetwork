@@ -12,4 +12,5 @@ Dada uma camada de origem (domicílios) e outra representando pontos de destino 
 ### Onde encontrar o algorítimo:
 Uma vez instalado e ativo, este plugin adiciona o novo provedor (Algorítimos para designar demandas nos nós na rede de distribuição) na **Caixa de Ferramentas Processamento**. 
 Você encontra o algorítimo na Caixa de Ferramentas sob Algorítimos para designar demandas nos nós na rede de distribuição -> Algorítimos -> Calcula a Vazão da Demanda nos Nós.
+
 ![Caixa de Ferramentas Processamento](/assets/tools.png "Caixa de Ferramentas Processamento")

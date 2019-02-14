@@ -15,7 +15,7 @@ tags=processing, demand, hub, distribution network
 
 homepage=https://github.com/edernilson
 category=Analysis
-icon=icon.png
+icon=assets/icon.png
 
 experimental=True
 deprecated=False
