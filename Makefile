@@ -48,9 +48,9 @@ PY_FILES = \
 
 UI_FILES = 
 
-EXTRAS = metadata.txt 
+EXTRAS = metadata.txt README.md
 
-EXTRA_DIRS =
+EXTRA_DIRS = assets
 
 COMPILED_RESOURCE_FILES = 
 
