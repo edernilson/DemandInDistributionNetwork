@@ -8,8 +8,8 @@ email=eder.nilson@gmail.com
 
 about=<b>Calculates demand on nodes:</b><br/>Estimate the demand at the nodes (hubs), based on household consumption. The calculation is performed by adding the demand in the households, and designating the total demand in the nodes of the distribution network. This processing plugin is based on component "<b>Distance to nearest hub</b>".<br/><b>Operation: </b>Given a layer of origin (households) and another layer representing destination points (nodes), the algorithm calculates the distance between each point of origin (households) and the nearest point of detention (Nodes). households, and totaling the demand value that will be assigned to the nearest node (hub). In addition, the algorithm displays a "line" layer, created by the "Distance to nearest hub" component, which identifies households (origin) and Nodes (destination), allowing easy verification of geoprocessing connectivity.
 
-tracker=https://github.com/edernilson/DemandaEmRedesDistribuicao/issues
-repository=https://github.com/edernilson/DemandaEmRedesDistribuicao
+tracker=https://github.com/edernilson/DemandInDistributionNetwork/issues
+repository=https://github.com/edernilson/DemandInDistributionNetwork
 
 tags=epanet, processing, demand, nodes, distribution network
 
