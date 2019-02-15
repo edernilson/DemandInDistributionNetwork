@@ -31,26 +31,26 @@ LOCALES = pt_BR
 # If locales are enabled, set the name of the lrelease binary on your system. If
 # you have trouble compiling the translations, you may have to specify the full path to
 # lrelease
-#LRELEASE = lrelease
-LRELEASE = lrelease-qt4
+LRELEASE = lrelease
+# LRELEASE = lrelease-qt4
 
 
 # translation
 SOURCES = \
 	__init__.py \
-	demanda_em_redes_distribuicao.py 
+	demand_in_distribution_network.py 
 
 PLUGINNAME = DemandaEmRedesDistribuicao
 
 PY_FILES = \
 	__init__.py \
-	demanda_em_redes_distribuicao.py 
+	demand_in_distribution_network.py 
 
 UI_FILES = 
 
 EXTRAS = metadata.txt README.md
 
-EXTRA_DIRS = assets
+EXTRA_DIRS = assets i18n
 
 COMPILED_RESOURCE_FILES = 
 

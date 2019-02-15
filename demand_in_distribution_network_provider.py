@@ -2,7 +2,7 @@
 
 """
 /***************************************************************************
- DemandaEmRedesDistribuicao
+ DemandInDistributionNetwork
                                  A QGIS plugin
  Algoritmos para calcular demanda em nós da rede de distribuição
                               -------------------
@@ -29,15 +29,17 @@ __copyright__ = '(C) 2018 by Eder Nilson'
 
 __revision__ = '$Format:%H$'
 
+import os.path
+
+from PyQt4.QtCore import QSettings, QTranslator, qVersion, QCoreApplication
 from processing.core.AlgorithmProvider import AlgorithmProvider
 from processing.core.ProcessingConfig import Setting, ProcessingConfig
 
 from calculo_vazao_agua_domiciliar_algorithm import CalculoVazaoAguaDomiciliarAlgorithm
 
 
-class DemandaEmRedesDistribuicaoProvider(AlgorithmProvider):
+class DemandInDistributionNetworkProvider(AlgorithmProvider):
 
-    DESCRIPTION = u'Algorítimos para designar demandas nos nós na rede de distribuição'
     NAME = 'DemandasDeNos'
     CALCULOSABASTECIMENTOAGUA_SETTING = 'DEMANDADENOS_SETTING'
 
@@ -46,6 +48,22 @@ class DemandaEmRedesDistribuicaoProvider(AlgorithmProvider):
 
     def __init__(self):
         AlgorithmProvider.__init__(self)
+
+        # initialize plugin directory
+        self.plugin_dir = os.path.dirname(__file__)
+        # initialize locale
+        locale = QSettings().value('locale/userLocale')[0:2]
+        locale_path = os.path.join(
+            self.plugin_dir,
+            'i18n',
+            '{}.qm'.format(locale))
+
+        if os.path.exists(locale_path):
+            self.translator = QTranslator()
+            self.translator.load(locale_path)
+
+            if qVersion() > '4.3.3':
+                QCoreApplication.installTranslator(self.translator)
 
         # Deactivate provider by default
         self.activate = True
@@ -64,10 +82,10 @@ class DemandaEmRedesDistribuicaoProvider(AlgorithmProvider):
         deactivating the algorithms in the provider.
         """
         AlgorithmProvider.initializeSettings(self)
-        ProcessingConfig.addSetting(
-            Setting(self.getDescription(),
-                    self.CALCULOSABASTECIMENTOAGUA_SETTING,
-                    'Active', True))
+        # ProcessingConfig.addSetting(
+        #     Setting(self.getDescription(),
+        #             self.CALCULOSABASTECIMENTOAGUA_SETTING,
+        #             'Active', True))
 
     def unload(self):
         """Setting should be removed here, so they do not appear anymore
@@ -88,7 +106,7 @@ class DemandaEmRedesDistribuicaoProvider(AlgorithmProvider):
     def getDescription(self):
         """This is the provired full name.
         """
-        return self.DESCRIPTION
+        return QCoreApplication.translate("@default", "Demands on nodes in the distribution network")
 
     def getIcon(self):
         """We return the default icon.
