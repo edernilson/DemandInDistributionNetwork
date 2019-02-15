@@ -17,6 +17,6 @@ homepage=https://github.com/edernilson/DemandInDistributionNetwork
 category=Analysis
 icon=assets/icon.png
 
-experimental=True
+experimental=False
 deprecated=False
 
