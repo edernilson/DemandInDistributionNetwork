@@ -2,7 +2,7 @@
 
 """
 /***************************************************************************
- CalculoVazaoAguaDomiciliar
+ DemandInDistributionNetwork
                                  A QGIS plugin
  Calcula a somatória da vazão de água de domicílios baseado no hub mais próximo
                               -------------------
@@ -35,7 +35,7 @@ import inspect
 
 from processing.core.Processing import Processing
 
-from demanda_em_redes_distribuicao_provider import DemandaEmRedesDistribuicaoProvider
+from demand_in_distribution_network_provider import DemandInDistributionNetworkProvider
 
 cmd_folder = os.path.split(inspect.getfile(inspect.currentframe()))[0]
 
@@ -43,10 +43,10 @@ if cmd_folder not in sys.path:
     sys.path.insert(0, cmd_folder)
 
 
-class DemandaEmRedesDistribuicaoPlugin:
+class DemandInDistributionNetworkPlugin:
 
     def __init__(self):
-        self.provider = DemandaEmRedesDistribuicaoProvider()
+        self.provider = DemandInDistributionNetworkProvider()
 
     def initGui(self):
         Processing.addProvider(self.provider)

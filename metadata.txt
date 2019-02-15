@@ -1,17 +1,17 @@
 [general]
-name=Demandas em redes de distribuição
+name=Demands in distribution networks
 qgisMinimumVersion=2.0
-description=Algoritmos para calcular demanda em nós da rede de distribuição
+description=Algorithms for computing demand at nodes of the distribution network
 version=0.1
 author=Eder Nilson, Julian Cardona
 email=eder.nilson@gmail.com
 
-about=<b>Calcula Demanda em Nós:</b><br/>Estima a demanda nos nós(hub), baseado no consumo dos domicílios. O cálculo é realizado somando a demanda nos domicílios, e designando a demanda total em os nós da rede de distribuição. Este plugin de processamento é baseado no componente "<b>Distance to nearest hub</b> (Distância para o centro mais próximo)".<br/><b>Funcionamento: </b>Dada uma camada de origem (domicílios) e outra representando pontos de destino (nós), o algoritmo calcula a distância entre cada ponto de origem (domicílios) e o ponto de detenção mais próximo (Nós), em este último é somado os consumos dos domicílios, e totalizando o valor de demanda que será designado para o NO(hub) mais próximo. Além disso, o algoritmo cria uma camada tipo “linha”, que identifica os domicílios (origem) e os Nós (destino), permitindo verificar facilmente a conectividade do geoprocessamento.
+about=<b>Calculates demand on nodes:</b><br/>Estimate the demand at the nodes (hubs), based on household consumption. The calculation is performed by adding the demand in the households, and designating the total demand in the nodes of the distribution network. This processing plugin is based on component "<b>Distance to nearest hub</b>".<br/><b>Operation: </b>Given a layer of origin (households) and another layer representing destination points (nodes), the algorithm calculates the distance between each point of origin (households) and the nearest point of detention (Nodes). households, and totaling the demand value that will be assigned to the nearest node (hub). In addition, the algorithm displays a "line" layer, created by the "Distance to nearest hub" component, which identifies households (origin) and Nodes (destination), allowing easy verification of geoprocessing connectivity.
 
-tracker=http://hub.qgis.org/projects/demanda_em_redes_distribuicao/issues
-repository=https://github.com/edernilson
+tracker=https://github.com/edernilson/DemandaEmRedesDistribuicao/issues
+repository=https://github.com/edernilson/DemandaEmRedesDistribuicao
 
-tags=processing, demand, hub, distribution network
+tags=epanet, processing, demand, nodes, distribution network
 
 homepage=https://github.com/edernilson
 category=Analysis

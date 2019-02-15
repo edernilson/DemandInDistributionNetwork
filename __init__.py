@@ -28,11 +28,11 @@ __copyright__ = '(C) 2018 by Eder Nilson'
 
 # noinspection PyPep8Naming
 def classFactory(iface):  # pylint: disable=invalid-name
-    """Load DemandaEmRedesDistribuicao class from file DemandaEmRedesDistribuicao.
+    """Load DemandInDistributionNetwork class from file DemandInDistributionNetwork.
 
     :param iface: A QGIS interface instance.
     :type iface: QgsInterface
     """
     #
-    from .demanda_em_redes_distribuicao import DemandaEmRedesDistribuicaoPlugin
-    return DemandaEmRedesDistribuicaoPlugin()
+    from .demand_in_distribution_network import DemandInDistributionNetworkPlugin
+    return DemandInDistributionNetworkPlugin()

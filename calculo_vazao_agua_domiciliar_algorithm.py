@@ -2,7 +2,7 @@
 
 """
 /***************************************************************************
- CalculoVazaoAguaDomiciliar
+ DemandInDistributionNetwork
                                  A QGIS plugin
  Calcula demanda dos Nós baseado no consumo de domicílios mais próximo
                               -------------------
@@ -31,7 +31,7 @@ __revision__ = '$Format:%H$'
 
 import processing
 
-from PyQt4.QtCore import QSettings
+from PyQt4.QtCore import QCoreApplication, QSettings
 from qgis.core import QgsVectorFileWriter, QgsMapLayerRegistry, QgsExpression, QgsFeatureRequest
 
 from processing.core.GeoAlgorithm import GeoAlgorithm
@@ -43,7 +43,7 @@ from processing.tools import dataobjects, vector
 class CalculoVazaoAguaDomiciliarAlgorithm(GeoAlgorithm):
     """Estima a demanda nos nós(hub), baseado no consumo dos domicílios. O cálculo é realizado somando a 
     demanda nos domicílios, e designando a demanda total em os nós da rede de distribuição. 
-    Este plugin de processamento é baseado no componente 'Distance to nearest hub (Distância para o centro mais próximo)'.
+    Este plugin de processamento executa internamente o componente 'Distance to nearest hub (Distância para o centro mais próximo)'.
     """
 
     # Camadas (layers)
@@ -70,34 +70,34 @@ class CalculoVazaoAguaDomiciliarAlgorithm(GeoAlgorithm):
     def defineCharacteristics(self):
 
         # The name that the user will see in the toolbox
-        self.name = u'Calcula a Vazão da Demanda nos Nós'
+        self.name = QCoreApplication.translate("@default", 'Calculates the Demand Flow in Nodes')
 
         # The branch of the toolbox under which the algorithm will appear
-        self.group = u'Algorítimos'
+        self.group = QCoreApplication.translate("@default", 'Algorithms')
 
         # We add the input vector layer. It can have any kind of geometry
         # It is a mandatory (not optional) one, hence the False argument
         self.addParameter(ParameterVector(self.INPUT_LAYER_ORIGIN,
-            self.tr(u'Camada de origem (domicílios):'), [ParameterVector.VECTOR_TYPE_ANY], False))
+            QCoreApplication.translate("@default", 'Layer of origin (households):'), [ParameterVector.VECTOR_TYPE_ANY], False))
 
         self.addParameter(ParameterTableField(self.INPUT_FIELD_ORIGIN,
-                          u'Campo de origem de consumo nos domicílios:', self.INPUT_LAYER_ORIGIN,
+                          QCoreApplication.translate("@default", 'Field of origin of consumption in households:'), self.INPUT_LAYER_ORIGIN,
                           datatype=0, optional=False))
 
         self.addParameter(ParameterVector(self.INPUT_LAYER_DEST,
-            self.tr(u'Camada de destino (Nós)'), [ParameterVector.VECTOR_TYPE_ANY], False))
+            QCoreApplication.translate("@default", 'Target Layer (Nodes):'), [ParameterVector.VECTOR_TYPE_ANY], False))
 
         self.addParameter(ParameterTableField(self.INPUT_FIELD_DEST_ID,
-                          u'Campo Id (identificador) da camada de destino:', self.INPUT_LAYER_DEST,
+                          QCoreApplication.translate("@default", 'Id field (identifier) of the target layer:'), self.INPUT_LAYER_DEST,
                           optional=False))
 
         self.addParameter(ParameterTableField(self.INPUT_FIELD_DEST_TOTAL,
-                          u'Campo da demanda da camada de destino:', self.INPUT_LAYER_DEST,
+                          QCoreApplication.translate("@default", 'Destination Layer Demand Field:'), self.INPUT_LAYER_DEST,
                           datatype=0, optional=False))
 
         # We add a vector layer as output
         self.addOutput(OutputVector(self.OUTPUT_LAYER,
-            self.tr(u'Camada de saída de linhas para os nós com menor distância')))
+            QCoreApplication.translate("@default", 'Line output layer for nodes with shorter distance:')))
 
     def zeraColuna(self):
         it = self.camada_dest.getFeatures()
